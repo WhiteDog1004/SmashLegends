@@ -1,7 +1,12 @@
-import '../styles/globals.css'
+import { useState } from "react";
+import NavBar from "../components/NavBar";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default function App({ Component, pageProps }) {
+    const [cnt, setCnt] = useState(0);
+    return <>
+        <NavBar />
+        <Component {...pageProps} />
+        <button onClick={() => setCnt((prev) => prev + 1)}>클릭</button>
+        <div>{cnt}</div>
+    </>
 }
-
-export default MyApp
